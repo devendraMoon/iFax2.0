@@ -1,0 +1,34 @@
+[2026-03-23 15:57:15] [WARN ] [thread:main] [TestNG.warn] - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+[2026-03-23 15:57:15] [WARN ] [thread:main] [TestNG.warn] - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+[2026-03-23 15:57:15] [WARN ] [thread:main] [TestNG.warn] - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+[2026-03-23 15:57:16] [INFO ] [thread:main] [BaseClass.setup] - ===== START TEST ===== Class: LoginTest | Method: VerifyLogin | Thread: 1 =====
+[2026-03-23 15:57:18] [INFO ] [thread:main] [BaseClass.initializeBrowser] - Chrome browser launched. Headless: false
+[2026-03-23 15:57:18] [INFO ] [thread:main] [BaseClass.setup] - Browser window maximized.
+[2026-03-23 15:57:23] [INFO ] [thread:main] [BaseClass.setup] - Navigated to URL: https://beta.amplify.xyz/login
+[2026-03-23 15:57:24] [INFO ] [thread:main] [BaseClass.VerifyLogin] - Test Started: Verify Login User flow
+[2026-03-23 15:57:24] [INFO ] [thread:main] [LogInPage.<init>] - Login Page initialized successfully.
+[2026-03-23 15:57:24] [INFO ] [thread:main] [LogInPage.enterEmail] - Enter Email iD:qa1+20022026@moontechnolabs.com
+[2026-03-23 15:57:24] [INFO ] [thread:main] [LogInPage.clickOnContinuebtn] - Click on the Continues button.
+[2026-03-23 15:57:25] [INFO ] [thread:main] [LogInPage.enterPassword] - Entered Password:Test@12345
+[2026-03-23 15:57:25] [INFO ] [thread:main] [LogInPage.clickOnSignInbtn] - Click on the Sign In button.
+[2026-03-23 15:57:33] [INFO ] [thread:main] [LogInPage.clickOnProfile] - Click on the Profile icon
+[2026-03-23 15:57:33] [INFO ] [thread:main] [LogInPage.clickOnLogoutOptn] - Click on the Logout option
+[2026-03-23 15:57:33] [INFO ] [thread:main] [BaseClass.CloseBrowser] - Test PASSED: LoginTest.VerifyLogin | Thread: 1
+[2026-03-23 15:57:34] [INFO ] [thread:main] [BaseClass.CloseBrowser] - Browser closed. END TEST: LoginTest.VerifyLogin | Thread: 1
+[2026-03-23 16:09:45] [WARN ] [thread:main] [TestNG.warn] - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+[2026-03-23 16:09:45] [WARN ] [thread:main] [TestNG.warn] - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+[2026-03-23 16:09:45] [WARN ] [thread:main] [TestNG.warn] - Ignoring duplicate listener : io.qameta.allure.testng.AllureTestNg
+[2026-03-23 16:09:47] [INFO ] [thread:main] [BaseClass.setup] - ===== START TEST ===== Class: LoginTest | Method: VerifyLogin | Thread: 1 =====
+[2026-03-23 16:09:48] [INFO ] [thread:main] [BaseClass.initializeBrowser] - Chrome browser launched. Headless: false
+[2026-03-23 16:09:48] [INFO ] [thread:main] [BaseClass.setup] - Browser window maximized.
+[2026-03-23 16:09:51] [INFO ] [thread:main] [BaseClass.setup] - Navigated to URL: https://beta.amplify.xyz/login
+[2026-03-23 16:09:52] [INFO ] [thread:main] [BaseClass.VerifyLogin] - Test Started: Verify Login User flow
+[2026-03-23 16:09:52] [INFO ] [thread:main] [LogInPage.<init>] - Login Page initialized successfully.
+[2026-03-23 16:09:52] [INFO ] [thread:main] [LogInPage.enterEmail] - Enter Email iD:qa1+20022026@moontechnolabs.com
+[2026-03-23 16:09:52] [INFO ] [thread:main] [LogInPage.clickOnContinuebtn] - Click on the Continues button.
+[2026-03-23 16:09:54] [INFO ] [thread:main] [LogInPage.enterPassword] - Entered Password:Test@12345
+[2026-03-23 16:09:54] [INFO ] [thread:main] [LogInPage.clickOnSignInbtn] - Click on the Sign In button.
+[2026-03-23 16:09:57] [INFO ] [thread:main] [LogInPage.clickOnProfile] - Click on the Profile icon
+[2026-03-23 16:09:58] [INFO ] [thread:main] [LogInPage.clickOnLogoutOptn] - Click on the Logout option
+[2026-03-23 16:09:58] [INFO ] [thread:main] [BaseClass.CloseBrowser] - Test PASSED: LoginTest.VerifyLogin | Thread: 1
+[2026-03-23 16:09:58] [INFO ] [thread:main] [BaseClass.CloseBrowser] - Browser closed. END TEST: LoginTest.VerifyLogin | Thread: 1
