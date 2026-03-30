@@ -11,11 +11,13 @@ import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import testUtils.ExcelDataProvider;
+
 import java.util.Map;
 
 public class LoginTest extends BaseClass {
 
-    @Test(description = "Login user Test",
+    @Test( priority = 1,
+            description = "Login user Test",
             dataProvider = "ExcelData",
             dataProviderClass = ExcelDataProvider.class)
     @Description("This test verifies login Functionality")
@@ -40,4 +42,28 @@ public class LoginTest extends BaseClass {
         lg.clickOnProfile();
         lg.clickOnLogoutOptn();
     }
+
+
+    @Test(priority = 2,
+            description = "Invalid test",
+            dataProvider = "ExcelData",
+            dataProviderClass = ExcelDataProvider.class)
+    public void VerifyLoginWithInvalidData(Map<String, String> data) {
+        log.info("Test Started: Verify Login with invalid Credentials");
+
+        LogInPage log1 = new LogInPage(getDriver());
+
+        // Get email from current row provided by DataProvider
+        String email = data.get("Email");
+
+        // Enter email and click continue
+        log1.InvalidCreads(email);
+
+        // Check if password field is displayed (valid email)
+        if (log1.isPasswordPageIsDisplayed()) {
+            System.out.println("Valid Email: " + email);
+        } else {
+            System.out.println("Invalid Email: " + email);
+        }
+   }
 }

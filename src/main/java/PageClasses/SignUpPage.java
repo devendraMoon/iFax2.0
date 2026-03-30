@@ -106,5 +106,6 @@ public class SignUpPage {
         wait.waitForElementToBeVisible(verifyText, WaitUtils.TIMEOUT);
         String Text = verifyText.getText();
         log.info("text is:" + Text);
+
     }
 }

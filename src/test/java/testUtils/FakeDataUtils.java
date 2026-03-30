@@ -30,9 +30,5 @@ public class FakeDataUtils {
         return "Test@" + getFaker().number().digits(5);
     }
 
-    public static String ConfirmPassword() {
-        return getFaker().name().username();
-    }
-
 
 }

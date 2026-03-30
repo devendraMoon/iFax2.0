@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 @Slf4j
 public class LogInPage {
 
@@ -44,6 +46,10 @@ public class LogInPage {
     // Find logout option element
     @FindBy(xpath = "//span[normalize-space()='Sign Out']")
     private WebElement logoutOpn;
+
+    // For the Invalid flow
+    @FindBy(xpath = "//input[@type='password']")
+    private List<WebElement> passwordField;
 
 
     // --- Actions (Public) ---
@@ -89,4 +95,16 @@ public class LogInPage {
         logoutOpn.click();
         log.info("Click on the Logout option");
     }
+
+    public void InvalidCreads(String emailID){
+        LoginEmail.clear();
+        LoginEmail.sendKeys(emailID);
+
+        signInbtn.click();
+    }
+
+    public boolean isPasswordPageIsDisplayed(){
+        return passwordField.size()>0;
+    }
+
 }
