@@ -59,6 +59,7 @@ public class LoginTest extends BaseClass {
         // Enter email and click continue
         log1.InvalidCreads(email);
 
+
         // Check if password field is displayed (valid email)
         if (log1.isPasswordPageIsDisplayed()) {
             System.out.println("Valid Email: " + email);

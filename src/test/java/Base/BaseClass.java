@@ -16,6 +16,11 @@ import org.testng.annotations.Parameters;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 
 public class BaseClass {
 
@@ -26,8 +31,11 @@ public class BaseClass {
     // Logger instance for Log4j2
     public static Logger log = LogManager.getLogger(BaseClass.class);
 
+    // ADDITIONAL DRIVER - RECEIVER
 
-    ConfigReader configReader;
+    protected WebDriver receiverDriver;
+
+    private ConfigReader configReader;
 
     {
         try {
@@ -41,6 +49,7 @@ public class BaseClass {
     @Parameters("Browser")
     public void setup(String browser, Method method) {
         String URL = configReader.getUrl();
+
         // Use browser parameter from TestNG, fallback to config if not provided
         String browserToUse = (browser != null && !browser.isEmpty()) ? browser : configReader.getBrowser();
 
@@ -56,7 +65,11 @@ public class BaseClass {
 
         driver.set(webDriver);   //  store driver in ThreadLocal
 
-        getDriver().manage().window().maximize();
+//        getDriver().manage().window().maximize();
+        getDriver().manage().window().setPosition(new Point(0, 0));
+
+        getDriver().manage().window().setSize(new Dimension(1100, 900));
+
         log.info("Browser window maximized.");
 
         getDriver().get(URL);
@@ -78,6 +91,16 @@ public class BaseClass {
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
 
+                // Automatically allow website notifications
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("profile.default_content_setting_values.notifications", 1);
+                chromeOptions.setExperimentalOption("prefs", prefs);
+
+
+                // Automatically allow microphone
+                prefs.put("profile.default_content_setting_values.media_stream_mic", 1);
+                chromeOptions.setExperimentalOption("prefs", prefs);
+
                 // Required flags for CI (GitHub Actions)
                 if (isHeadless) {
                     chromeOptions.addArguments("--headless=new");
@@ -94,12 +117,37 @@ public class BaseClass {
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
 
+                // Notification permission
+                firefoxOptions.addPreference(
+                        "permissions.default.desktop-notification",
+                        1
+                );
+
+                // Notification API
+                firefoxOptions.addPreference(
+                        "dom.webnotifications.enabled",
+                        true
+                );
+
+                // Microphone permission
+                firefoxOptions.addPreference(
+                        "permissions.default.microphone",
+                        1
+                );
+
+                // Camera permission
+                firefoxOptions.addPreference(
+                        "permissions.default.camera",
+                        1
+                );
+
                 if (isHeadless) {
                     firefoxOptions.addArguments("--headless");
                 }
 
                 webDriver = new FirefoxDriver(firefoxOptions);
-                log.info("Firefox browser launched. Headless: " + isHeadless);
+
+                log.info("Firefox browser launched. Headless: {}", isHeadless);
                 break;
 
             default:
@@ -107,6 +155,80 @@ public class BaseClass {
         }
 
         return webDriver;
+    }
+
+    // ============================================================
+    // CREATE ADDITIONAL BROWSER
+    // ============================================================
+    //
+    // This browser is NOT stored in ThreadLocal.
+    //
+    // Example:
+    // WebDriver receiver = createAdditionalBrowser("firefox");
+    //
+    // ============================================================
+
+    protected WebDriver createAdditionalBrowser(String browser) {
+
+        log.info("Creating additional browser for receiver: {}", browser);
+
+        receiverDriver = initializeBrowser(browser);
+
+        // Position receiver browser on the right side
+        receiverDriver.manage().window().setPosition(new Point(1100, 0));
+
+        receiverDriver.manage().window().setSize(new Dimension(1100, 900));
+
+        log.info("Receiver browser positioned.");
+
+        receiverDriver.get(configReader.getUrl());
+
+        log.info("Receiver navigated to URL: {}", configReader.getUrl());
+
+        return receiverDriver;
+    }
+
+
+    // GET RECEIVER DRIVER
+
+    protected WebDriver getReceiverDriver() {
+
+        if (receiverDriver == null) {
+
+            throw new IllegalStateException(
+                    "Receiver browser has not been initialized."
+            );
+        }
+
+        return receiverDriver;
+    }
+
+    // CLOSE RECEIVER BROWSER
+
+    protected void closeAdditionalBrowser() {
+
+        if (receiverDriver != null) {
+
+            try {
+
+                receiverDriver.quit();
+
+                log.info(
+                        "Receiver browser closed successfully."
+                );
+
+            } catch (Exception e) {
+
+                log.error(
+                        "Error while closing receiver browser.",
+                        e
+                );
+
+            } finally {
+
+                receiverDriver = null;
+            }
+        }
     }
 
     @AfterMethod
@@ -126,7 +248,7 @@ public class BaseClass {
         }
 
         if (getDriver() != null) {
-            getDriver().quit();
+            //  getDriver().quit();
             driver.remove(); //  remove ThreadLocal reference
             log.info("Browser closed. END TEST: {}.{} | Thread: {}", className, methodName, threadId);
         }

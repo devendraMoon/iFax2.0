@@ -51,6 +51,9 @@ public class LogInPage {
     @FindBy(xpath = "//input[@type='password']")
     private List<WebElement> passwordField;
 
+    @FindBy(xpath = "//button[contains(., 'Engage')]")
+    WebElement EngageTab;
+
 
     // --- Actions (Public) ---
 
@@ -96,11 +99,13 @@ public class LogInPage {
         log.info("Click on the Logout option");
     }
 
+    @Step("Enter Invalid email id: {0}")
     public void InvalidCreads(String emailID){
         LoginEmail.clear();
         LoginEmail.sendKeys(emailID);
 
         signInbtn.click();
+        log.info("Enter invalid email id:"+emailID);
     }
 
     public boolean isPasswordPageIsDisplayed(){
