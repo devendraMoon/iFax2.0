@@ -38,6 +38,10 @@ public class TokenResolver {
             return cache.computeIfAbsent(columnKey,
                     k -> FakeDataUtils.Password());
 
+        if (value.contains("{faker.dummyMessage}"))
+            return cache.computeIfAbsent(columnKey,
+                    k -> FakeDataUtils.dummyMessage());
+
         return value;
     }
 }

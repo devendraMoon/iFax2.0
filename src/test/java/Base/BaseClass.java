@@ -65,10 +65,10 @@ public class BaseClass {
 
         driver.set(webDriver);   //  store driver in ThreadLocal
 
-//        getDriver().manage().window().maximize();
-        getDriver().manage().window().setPosition(new Point(0, 0));
-
-        getDriver().manage().window().setSize(new Dimension(1100, 900));
+        getDriver().manage().window().maximize();
+//        getDriver().manage().window().setPosition(new Point(0, 0));
+//
+//        getDriver().manage().window().setSize(new Dimension(1100, 900));
 
         log.info("Browser window maximized.");
 

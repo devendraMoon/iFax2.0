@@ -152,20 +152,6 @@ public class EngageModulePage {
         log.info("Click on the call icon to make a call");
     }
 
-//    @Step("Accept the call on the receiver side")
-//    public void ReceivePopup() {
-//        wait.waitForElementToBeVisible(CallReceivePopup, WaitUtils.TIMEOUT);
-//        if (CallReceivePopup.isDisplayed()) {
-//            System.out.println("Incoming call banner is appears");
-//
-//            // Click on the accept button
-//            wait.waitForElementToBeVisible(AcceptBtn, WaitUtils.TIMEOUT);
-//            AcceptBtn.click();
-//            log.info("Click on the Accept Button form the incoming call banner");
-//        } else {
-//            throw new RuntimeException("No incoming call banner is appears or no call is receive");
-//        }
-//    }
 
     @Step("Accept the call on the receiver side")
     public void ReceivePopup() {

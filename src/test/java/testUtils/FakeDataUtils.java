@@ -30,5 +30,20 @@ public class FakeDataUtils {
         return "Test@" + getFaker().number().digits(5);
     }
 
+    public static String dummyMessage(){
 
+        String[] messages = {
+                "Hello, this is a test message.",
+                "This is a sample message for testing.",
+                "Hi, I am testing the messaging functionality.",
+                "This message is generated for automation testing.",
+                "Hello, how are you doing today?",
+                "This is a test message sent from the automation script.",
+                "Testing message delivery successfully.",
+                "Please consider this as a test message.",
+                "The messaging feature is working as expected.",
+                "This is an automated test message."
+        };
+        return messages[getFaker().random().nextInt(messages.length)];
+    }
 }
