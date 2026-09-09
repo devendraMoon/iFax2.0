@@ -42,7 +42,7 @@ public class EngageTabTest extends BaseClass {
         // Receiver login - Firefox
         WebDriver receiverDriver = createAdditionalBrowser("firefox");
 
-        LogInPage ReceiverLg =new LogInPage(getReceiverDriver());
+        LogInPage ReceiverLg = new LogInPage(getReceiverDriver());
 
         String ReceiverLogin = data.get("receiverUsername");
         String ReceiverPass = data.get("receiverPassword");
@@ -53,12 +53,13 @@ public class EngageTabTest extends BaseClass {
         ReceiverLg.clickOnSignInbtn();
 
         EngageModulePage receiverEngage = new EngageModulePage(receiverDriver);
+        receiverEngage.ClickOnNotificationBtn();
         receiverEngage.ClickOnMenuIcon();
         receiverEngage.clickOnEngageTab();
 
         //  SENDER INITIATES CALL
         engage.ClickOnNewBtn();
-        engage.PerformTheCallAction("+12514189393");
+        engage.PerformTheCallAction("+12044005432");
 
         // RECEIVER ACCEPTS CALL
         receiverEngage.ReceivePopup();

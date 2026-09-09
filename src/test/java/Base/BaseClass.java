@@ -248,7 +248,7 @@ public class BaseClass {
         }
 
         if (getDriver() != null) {
-            //  getDriver().quit();
+              getDriver().quit();
             driver.remove(); //  remove ThreadLocal reference
             log.info("Browser closed. END TEST: {}.{} | Thread: {}", className, methodName, threadId);
         }

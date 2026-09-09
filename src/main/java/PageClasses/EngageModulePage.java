@@ -26,6 +26,10 @@ public class EngageModulePage {
 
     private By MenuIcon = By.xpath("//button[contains(@class, 'xs-toggle-menu')]");
 
+    // Click On Enable Notification button//
+    @FindBy(xpath = "//span[normalize-space()='Enable Notifications']")
+    private WebElement NotificationBtn;
+
     // Click on Engage tab
     @FindBy(xpath = "//button[contains(., 'Engage')]")
     private WebElement EngageTab;
@@ -72,6 +76,14 @@ public class EngageModulePage {
 
 
     // Methods
+
+    @Step("Click on the Enable Notification Button")
+    public void ClickOnNotificationBtn() {
+        wait.waitForElementToBeVisible(NotificationBtn, WaitUtils.TIMEOUT);
+        NotificationBtn.click();
+        log.info("Click on the Enable Notification Button");
+    }
+
     @Step("Click on the Menu Icon when required")
     public void ClickOnMenuIcon() {
 
@@ -120,10 +132,10 @@ public class EngageModulePage {
             );
         }
 
-        System.out.println("Available numbers in account: 23");
+        System.out.println("Available numbers in account: 4");
         System.out.println("Code fetched the numbers: " + NumList.size());
 
-        WebElement selectNumber = NumList.get(22);
+        WebElement selectNumber = NumList.get(0);
         System.out.println("Clicked on this number:" + selectNumber.getText());
         selectNumber.click();
     }

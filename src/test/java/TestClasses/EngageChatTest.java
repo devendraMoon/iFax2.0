@@ -42,7 +42,7 @@ public class EngageChatTest extends BaseClass {
         chat.GetNumList();
         chat.ClickOnNewBtn();
         chat.ClickOnNewMsgOpn();
-        chat.EnterNumField("+16042106341");
+        chat.EnterNumField("+12044005432");
         chat.SendMsg(message);
 
     }

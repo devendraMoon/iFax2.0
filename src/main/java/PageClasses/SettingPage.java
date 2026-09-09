@@ -57,7 +57,7 @@ public class SettingPage extends GeneralUtils {
     }
 
     @Step("Click on the Team and SSO option From Settings page.")
-    public void ClickOnTeamAndSSSo(){
+    public void ClickOnTeamAndSSO(){
         wait.waitForElementToBeVisible(TeamNSSOOptn,WaitUtils.TIMEOUT);
         TeamNSSOOptn.click();
         log.info("Click on the Team and SSO option From Settings page.");

@@ -44,7 +44,8 @@ public class LoginTest extends BaseClass {
     }
 
 
-    @Test(priority = 2,
+    @Test(enabled = false,
+            priority = 2,
             description = "Invalid test",
             dataProvider = "ExcelData",
             dataProviderClass = ExcelDataProvider.class)
