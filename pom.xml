@@ -24,14 +24,14 @@
       <scope>test</scope>
     </dependency>
 
-        <!-- Selenium -->
+        <!--Selenium-->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.34.0</version>
         </dependency>
 
-        <!-- TestNG -->
+        <!--TestNG-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -39,15 +39,15 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Extent Reports -->
+        <!--Extent Reports-->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>5.1.2</version>
         </dependency>
 
-        <!-- Apache POI -->
-        <!-- Apache POI -->
+        <!--Apache POI-->
+        <!--Apache POI-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
@@ -60,7 +60,7 @@
             <version>5.4.1</version>
         </dependency>
 
-        <!-- Log4j -->
+        <!--Log4j-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
@@ -77,7 +77,7 @@
             <version>2.23.1</version>
         </dependency>
 
-        <!-- Allure -->
+        <!--Allure-->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -95,8 +95,8 @@
             <version>1.9.21</version>
         </dependency>
 
-        <!-- JavaFaker: Library for generating fake data -->
-        <!-- Source: https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <!--JavaFaker: Library for generating fake data-->
+        <!--Source: https://mvnrepository.com/artifact/com.github.javafaker/javafaker-->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
@@ -113,7 +113,7 @@
   </dependencies>
     <build>
         <plugins>
-            <!-- Surefire (FIXED) -->
+            <!--Surefire (FIXED)-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -123,7 +123,7 @@
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
-                    <!--VERY IMPORTANT -->
+                    <!--VERY IMPORTANT-->
                     <systemPropertyVariables>
                         <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
@@ -134,14 +134,14 @@
                 </configuration>
             </plugin>
 
-            <!--Allure Plugin (UPDATED) -->
+            <!--Allure Plugin (UPDATED)-->
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.12.0</version>
             </plugin>
 
-            <!--Compiler -->
+            <!--Compiler-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
