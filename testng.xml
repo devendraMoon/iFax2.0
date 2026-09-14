@@ -1,24 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="All Test Suite" parallel="none" thread-count="2">
+<suite name="All Test Suite" parallel="tests" thread-count="3">
 
     <!-- ============================
          TESTNG LISTENERS (Allure + Extent)
          ============================ -->
     <listeners>
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
-<!--        <listener class-name="testUtils.ExtendListenerClass"/>-->
+        <!--        <listener class-name="testUtils.ExtendListenerClass"/>-->
     </listeners>
 
-
-    <!-- ============================
-         SINGLE TEST (Sequential Execution)
-         ============================ -->
-    <test name="Complete Test Execution">
+    <!-- Login Test -->
+    <test name="Login Test Execution">
         <parameter name="Browser" value="chrome"/>
         <classes>
             <class name="TestClasses.LoginTest"/>
+        </classes>
+    </test>
+
+    <!-- Engage Tab Test -->
+    <test name="Engage Tab Test Execution">
+        <parameter name="Browser" value="chrome"/>
+        <classes>
+            <class name="TestClasses.EngageTabTest"/>
+        </classes>
+    </test>
+
+    <!-- Engage Chat Test -->
+    <test name="Engage Chat Test Execution">
+        <parameter name="Browser" value="chrome"/>
+        <classes>
+            <class name="TestClasses.EngageChatTest"/>
         </classes>
     </test>
 </suite>
