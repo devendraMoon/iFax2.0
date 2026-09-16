@@ -86,10 +86,10 @@ public class EngageChat {
             );
         }
 
-        System.out.println("Available numbers in account: 23");
+        System.out.println("Available numbers in account: 4");
         System.out.println("Code fetched the numbers: " + NumList.size());
 
-        WebElement selectNumber = NumList.get(22);
+        WebElement selectNumber = NumList.get(0);
         System.out.println("Clicked on this number:" + selectNumber.getText());
         selectNumber.click();
     }
