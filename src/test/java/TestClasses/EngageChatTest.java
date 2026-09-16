@@ -37,8 +37,8 @@ public class EngageChatTest extends BaseClass {
         String message = data.get("dummyMessage");
 
         EngageChat chat = new EngageChat(getDriver());
+        chat.ClickOnNotificationBtn();
         chat.clickOnEngageTab();
-        chat.GetNumList();
         chat.GetNumList();
         chat.ClickOnNewBtn();
         chat.ClickOnNewMsgOpn();

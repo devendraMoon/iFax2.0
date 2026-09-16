@@ -24,6 +24,10 @@ public class EngageChat {
         log.info("Engage Page initialized successfully.");
     }
 
+    // Click On Enable Notification button//
+    @FindBy(xpath = "//span[normalize-space()='Enable Notifications']")
+    private WebElement NotificationBtn;
+
     // Click on Engage tab
     @FindBy(xpath = "//button[contains(., 'Engage')]")
     private WebElement EngageTab;
@@ -59,6 +63,15 @@ public class EngageChat {
     // Click on the send button
     @FindBy(xpath = "//span[normalize-space()='send']")
     private WebElement SendBtn;
+
+
+
+    @Step("Click on the Enable Notification Button")
+    public void ClickOnNotificationBtn() {
+        wait.waitForElementToBeVisible(NotificationBtn, WaitUtils.TIMEOUT);
+        NotificationBtn.click();
+        log.info("Click on the Enable Notification Button");
+    }
 
     @Step("Click on the EngageTab")
     public void clickOnEngageTab() {
