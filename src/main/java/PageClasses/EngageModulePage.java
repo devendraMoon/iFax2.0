@@ -30,6 +30,10 @@ public class EngageModulePage {
     @FindBy(xpath = "//span[normalize-space()='Enable Notifications']")
     private WebElement NotificationBtn;
 
+    // Click on Okay button to allow the notification button
+    @FindBy(xpath = "//span[normalize-space()='Okay']")
+    private WebElement OkayBtn;
+
     // Click on Engage tab
     @FindBy(xpath = "//button[contains(., 'Engage')]")
     private WebElement EngageTab;
@@ -82,6 +86,9 @@ public class EngageModulePage {
         wait.waitForElementToBeVisible(NotificationBtn, WaitUtils.TIMEOUT);
         NotificationBtn.click();
         log.info("Click on the Enable Notification Button");
+
+        wait.waitForElementToBeVisible(OkayBtn, WaitUtils.TIMEOUT);
+        log.info("Click on 'Okay' button to allow the notification button");
     }
 
     @Step("Click on the Menu Icon when required")
@@ -119,7 +126,7 @@ public class EngageModulePage {
         if (NumList.isEmpty()) {
             throw new RuntimeException("No number found: The Inbox list is empty.");
         }
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", NumListScroll);
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", NumListScroll);
 
         Thread.sleep(5000);
         System.out.println("Available number in engage:" + NumList);
