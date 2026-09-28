@@ -86,9 +86,9 @@ public class EngageChat {
         if (NumList.isEmpty()) {
             throw new RuntimeException("No number found: The Inbox list is empty.");
         }
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", NumListScroll);
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollTop = arguments[0].scrollHeight;", NumListScroll);
 
-        Thread.sleep(5000);
+        Thread.sleep(2000);
         System.out.println("Available number in engage:" + NumList);
 
         for (int i = 0; i < NumList.size(); i++) {

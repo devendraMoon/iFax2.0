@@ -175,9 +175,11 @@ public class BaseClass {
         receiverDriver = initializeBrowser(browser);
 
         // Position receiver browser on the right side
-        receiverDriver.manage().window().setPosition(new Point(1100, 0));
 
-        receiverDriver.manage().window().setSize(new Dimension(1100, 900));
+        receiverDriver.manage().window().maximize();
+//        receiverDriver.manage().window().setPosition(new Point(1100, 0));
+//
+//        receiverDriver.manage().window().setSize(new Dimension(1100, 900));
 
         log.info("Receiver browser positioned.");
 
