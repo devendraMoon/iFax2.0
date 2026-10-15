@@ -80,10 +80,19 @@ public class BaseClass {
 
         // Check if headless mode is enabled via Jenkins or Maven
         // Detect if running in CI (GitHub Actions)
-        boolean isCI = System.getenv("GITHUB_ACTIONS") != null;
+//        boolean isCI = System.getenv("GITHUB_ACTIONS") != null;
+
+
+        boolean isCI =
+                System.getenv("JENKINS_HOME") != null ||
+                        System.getenv("JENKINS_URL") != null ||
+                        System.getenv("GITHUB_ACTIONS") != null;
+
+        boolean isHeadless = isCI ||
+                Boolean.parseBoolean(System.getProperty("headless", "false"));
 
         // Headless flag from Maven or CI environment
-        boolean isHeadless = isCI || System.getProperty("headless", "false").equalsIgnoreCase("true");
+//        boolean isHeadless = isCI || System.getProperty("headless", "false").equalsIgnoreCase("true");
 
         WebDriver webDriver;
 

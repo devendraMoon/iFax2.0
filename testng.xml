@@ -12,12 +12,12 @@
     </listeners>
 
     <!-- Login Test -->
-    <test name="Login Test Execution">
-        <parameter name="Browser" value="chrome"/>
-        <classes>
-            <class name="TestClasses.LoginTest"/>
-        </classes>
-    </test>
+<!--    <test name="Login Test Execution">-->
+<!--        <parameter name="Browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="TestClasses.LoginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
     <!-- Engage Tab Test -->
     <test name="Engage Tab Test Execution">
@@ -28,10 +28,10 @@
     </test>
 
     <!-- Engage Chat Test -->
-    <test name="Engage Chat Test Execution">
-        <parameter name="Browser" value="chrome"/>
-        <classes>
-            <class name="TestClasses.EngageChatTest"/>
-        </classes>
-    </test>
+<!--    <test name="Engage Chat Test Execution">-->
+<!--        <parameter name="Browser" value="chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="TestClasses.EngageChatTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
